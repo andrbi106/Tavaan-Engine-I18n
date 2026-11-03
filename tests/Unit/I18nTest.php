@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\I18n\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tavaan\Testing\TestCase;
 use Tavaan\Engine\I18n\Translator;
 use Tavaan\Engine\I18n\PluralRules;
 use Tavaan\Engine\I18n\NumberFormatter;

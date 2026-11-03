@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\I18n\Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Tavaan\Testing\TestCase;
 use Tavaan\Engine\I18n\Translator;
 use Tavaan\Engine\I18n\I18nServiceProvider;
 use Tavaan\Engine\I18n\Contracts\TranslatorInterface;
