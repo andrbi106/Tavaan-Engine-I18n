@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * lang:check command.
  */
-final class Lang_checkCommand implements CommandInterface
+final class LangCheckCommand implements CommandInterface
 {
     public function name(): string
     {
