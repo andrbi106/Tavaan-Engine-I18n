@@ -6,58 +6,25 @@ namespace Tavaan\Engine\I18n\Contracts;
 
 /**
  * قرارداد Translator.
- *
- * @see \Tavaan\Engine\I18n\Translator
- * @api 1.0
  */
 interface TranslatorInterface
 {
-    /**
-     * متد get.
-     *
-     * @return mixed
-     */
-    public function get(/* ... */): mixed;
+    public function get(string $key, array $replace = [], ?string $locale = null): string;
+
+    public function choice(string $key, int $number, array $replace = [], ?string $locale = null): string;
+
+    public function has(string $key, ?string $locale = null): bool;
+
+    public function setLocale(string $locale): void;
+
+    public function getLocale(): string;
+
+    public function getFallback(): string;
+
+    public function addNamespace(string $namespace, string $hint): void;
 
     /**
-     * متد has.
-     *
-     * @return mixed
+     * @param array<string, mixed> $lines
      */
-    public function has(/* ... */): mixed;
-
-    /**
-     * متد choice.
-     *
-     * @return mixed
-     */
-    public function choice(/* ... */): mixed;
-
-    /**
-     * متد setLocale.
-     *
-     * @return mixed
-     */
-    public function setLocale(/* ... */): mixed;
-
-    /**
-     * متد getLocale.
-     *
-     * @return mixed
-     */
-    public function getLocale(/* ... */): mixed;
-
-    /**
-     * متد namespace.
-     *
-     * @return mixed
-     */
-    public function namespace(/* ... */): mixed;
-
-    /**
-     * متد addNamespace.
-     *
-     * @return mixed
-     */
-    public function addNamespace(/* ... */): mixed;
+    public function addLines(array $lines, string $locale, string $namespace = '*'): void;
 }

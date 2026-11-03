@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-/*| پیام‌های en برای موتور i18n */
-
 return [
-    'error_default' => 'Unknown error (i18n)',
-    'not_configured' => 'Engine not configured (i18n)',
+    'welcome' => 'Welcome to Tavaan',
+    'goodbye' => 'Goodbye',
+    'cart' => [
+        'items' => '{0}empty|{1}one item|[2,*]:count items',
+    ],
 ];
