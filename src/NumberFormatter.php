@@ -16,7 +16,8 @@ final class NumberFormatter
 
     public function format(int|float $number, int $decimals = 0): string
     {
-        $formatted = \number_format((float) $number, $decimals, '.', ',');
+        $formatted = 
+umber_format((float) $number, $decimals, '.', ',');
         return $this->locale === 'fa' ? $this->toPersianDigits($formatted) : $formatted;
     }
 
