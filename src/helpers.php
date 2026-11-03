@@ -7,7 +7,7 @@ declare(strict_types=1);
  * helpers.php — trans()/__()/trans_number()/jalali().
  */
 
-use Tavaan\Core\Contracts\I18n\TranslatorInterface;
+use Tavaan\Engine\I18n\Contracts\TranslatorInterface;
 use Tavaan\Core\Facade\Facade;
 use Tavaan\Engine\I18n\PersianFormatter;
 
