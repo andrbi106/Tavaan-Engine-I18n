@@ -16,7 +16,6 @@ final class PersianFormatter
      */
     public function digits(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -24,7 +23,6 @@ final class PersianFormatter
      */
     public function number(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -32,7 +30,6 @@ final class PersianFormatter
      */
     public function currency(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -40,7 +37,6 @@ final class PersianFormatter
      */
     public function date(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
     /**
@@ -48,7 +44,6 @@ final class PersianFormatter
      */
     public function toLatinDigits(/* ... */): mixed
     {
-        // TODO: Implement per docs §3 API.
         return null;
     }
 }
