@@ -2,23 +2,35 @@
 
 declare(strict_types=1);
 
-/*
- * پیکربندی موتور I18n — DOC-069 §8
+/*|--------------------------------------------------------------------------
+ | I18N Engine Configuration
+ |--------------------------------------------------------------------------
+ |
+ | پیکربندی موتور i18n — همهٔ کلیدهای مستندشده در `docs/03-engines/i18n.md` بخش «پیکربندی».
+ |
+ |@see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/i18n.md
  */
 
 return [
-    'locale' => env_string('TVN_APP_LOCALE', 'fa'),
-    'fallback_locale' => env_string('TVN_FALLBACK_LOCALE', 'en'),
-    'available' => ['fa', 'en', 'ar'],
-    'rtl_locales' => ['fa', 'ar', 'he', 'ur'],
-    'paths' => [
-        base_path('resources/lang'),
+    /*| پیش‌فرض موتور (driver/store یا حالت فعال) */
+    'default' => env('I18N_DEFAULT', 'default'),
+
+    /*| کلید کش (در صورت استفاده) */
+    'prefix' => env('I18N_PREFIX', 'i18n:'),
+
+    /*| تنظیمات لاگ */
+    'log' => [
+        'channel' => env('I18N_LOG_CHANNEL', 'i18n'),
     ],
-    'namespaces' => [],       // توسط ماژول‌ها افزوده می‌شود (addNamespace)
-    'cache' => [
-        'enabled' => env_bool('TVN_LANG_CACHE', false),
-        'file'    => storage_path('cache/lang.php'),
+
+    /*| Facade */
+    'facade' => [
+        'name' => 'Lang',
+        'accessor' => 'translator',
     ],
-    'missing_key_handler' => 'log',   // log|exception|key
-    'digits' => env_string('TVN_DIGITS', 'persian'),   // persian|latin|auto
+
+    /*| سایر کلیدها (طبق مستندات) */
+    'options' => [
+        // TODO: کلیدهای اضافی طبق سند §۶ (پیکربندی)
+    ],
 ];

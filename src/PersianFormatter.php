@@ -4,55 +4,65 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\I18n;
 
+use Tavaan\Core\Contracts\Config\RepositoryInterface as Config;
+
 /**
- * تَوان | Tavaan — I18n
- * PersianFormatter — ارقام/اعداد/پول فارسی (DOC-069 §5).
+ * PersianFormatter — پیاده‌سازی اصلی موتور.
  *
- * @api 1.0
- * @see docs/03-engines/i18n.md
+ * @see \Tavaan\Engine\I18n\Contracts\PersianFormatterInterface
  */
-final class PersianFormatter
+final class PersianFormatter implements Contracts\PersianFormatterInterface
 {
-    /** @var list<string> */
-    private const FA_DIGITS = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-
-    private const FA_DECIMAL = '٫';    // U+066B
-
-    private const FA_THOUSAND = '٬';   // U+066C
-
-    private function __construct()
-    {
-    }
-
-    public static function digits(string|int|float $value): string
-    {
-        return \str_replace(\range('0', '9'), self::FA_DIGITS, (string) $value);
-    }
-
-    public static function number(float|int $value, int $decimals = 0): string
-    {
-        $formatted = \number_format($value, $decimals, '.', ',');
-        $formatted = \str_replace([',', '.'], [self::FA_THOUSAND, self::FA_DECIMAL], $formatted);
-
-        return self::digits($formatted);
+    /**
+     * @param Config $config پیکربندی موتور
+     */
+    public function __construct(
+        private readonly Config $config,
+    ) {
     }
 
     /**
-     * پول = int minor-unit (ADR-0013) → نمایش با جداکنندهٔ فارسی.
+     * {@inheritdoc}
      */
-    public static function minorUnits(int $amount, int $decimals = 0, string $symbol = 'ریال'): string
+    public function digits(/* ... */): mixed
     {
-        $value = $decimals > 0 ? $amount / (10 ** $decimals) : $amount;
-
-        return self::number($value, $decimals) . ' ' . $symbol;
+        // TODO: پیاده‌سازی digits مطابق مستندات (سند §3 API).
+        return null;
     }
 
-    public static function toLatinDigits(string $value): string
+    /**
+     * {@inheritdoc}
+     */
+    public function number(/* ... */): mixed
     {
-        return \str_replace(
-            [...self::FA_DIGITS, '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'],
-            [...\range('0', '9'), ...\range('0', '9')],
-            $value,
-        );
+        // TODO: پیاده‌سازی number مطابق مستندات (سند §3 API).
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function currency(/* ... */): mixed
+    {
+        // TODO: پیاده‌سازی currency مطابق مستندات (سند §3 API).
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function date(/* ... */): mixed
+    {
+        // TODO: پیاده‌سازی date مطابق مستندات (سند §3 API).
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toLatinDigits(/* ... */): mixed
+    {
+        // TODO: پیاده‌سازی toLatinDigits مطابق مستندات (سند §3 API).
+        return null;
     }
 }

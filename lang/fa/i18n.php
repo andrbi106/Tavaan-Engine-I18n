@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+/*| پیام‌های fa برای موتور i18n */
+
 return [
-    'missing_key' => 'کلید ترجمه یافت نشد: :key',
+    'error_default' => 'خطای ناشناخته (i18n)',
+    'not_configured' => 'موتور پیکربندی نشده است (i18n)',
 ];
