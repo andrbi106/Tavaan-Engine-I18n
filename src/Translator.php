@@ -200,4 +200,13 @@ final class Translator implements TranslatorInterface
         }
         return $result;
     }
+
+    /**
+     * namespace
+     */
+    public function namespace(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
 }
