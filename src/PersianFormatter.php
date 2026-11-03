@@ -14,35 +14,35 @@ final class PersianFormatter
     /**
      * digits
      */
-    public function digits(/* ... */): mixed
+    public function digits()
     {
         return null;
     }
     /**
      * number
      */
-    public function number(/* ... */): mixed
+    public function number()
     {
         return null;
     }
     /**
      * currency
      */
-    public function currency(/* ... */): mixed
+    public function currency()
     {
         return null;
     }
     /**
      * date
      */
-    public function date(/* ... */): mixed
+    public function date()
     {
         return null;
     }
     /**
      * toLatinDigits
      */
-    public function toLatinDigits(/* ... */): mixed
+    public function toLatinDigits()
     {
         return null;
     }

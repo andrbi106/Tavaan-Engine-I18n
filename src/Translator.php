@@ -204,8 +204,8 @@ final class Translator implements TranslatorInterface
     /**
      * namespace
      */
-    public function namespace(/* ... */): mixed
+    public function namespace(string $namespace): self
     {
-        $this->groupStack[] = ['namespace' => $namespace]; return $this;
+        return $this;
     }
 }
