@@ -2,6 +2,8 @@
 
 > **بین‌المللی‌سازی** — موتور I18n در فریمورک تَوان
 
+این موتور از کلاس پایهٔ `Engine` (در [Tavaan-Engine-Core](https://github.com/andrbi106/Tavaan-Engine-Core)) ارث می‌برد.
+
 ## مشخصات
 
 | فیلد | مقدار |
@@ -11,62 +13,60 @@
 | عنوان فارسی | بین‌المللی‌سازی |
 | نسخه | `0.1.0` |
 | namespace | `Tavaan\Engine\I18n` |
-| نوع | `engine` |
-| Facade | `Lang` (accessor: `translator`) |
+| کلاس موتور | `Tavaan\Engine\I18n\I18nEngine` |
+| Facade | Lang (`translator`) |
 
-## قراردادها (Contracts)
+## کلاس موتور
 
-این موتور قراردادهای زیر را ارائه می‌دهد:
+```php
+namespace Tavaan\Engine\I18n;
 
-- `Tavaan\Engine\I18n\Contracts\TranslatorInterface`
+use Tavaan\EngineCore\Engine as BaseEngine;
+use Tavaan\EngineCore\Contracts\EngineManifestInterface;
 
-## Facadeها
+final class I18nEngine extends BaseEngine
+{
+    public function __construct(EngineManifestInterface $manifest)
+    {
+        parent::__construct($manifest);
+    }
 
-- `Tavaan\Engine\I18n\Facades\Lang`
+    public function register(ContainerInterface $container): void
+    {
+        parent::register($container);
+        // bindingهای اختصاصی موتور
+    }
 
-## کلاس‌های اصلی
+    public function boot(): void
+    {
+        parent::boot();
+    }
+}
+```
 
-- `src/I18nServiceProvider.php`
-- `src/Jalali/Jalali.php`
-- `src/Jalali/JalaliDate.php`
-- `src/NumberFormatter.php`
-- `src/PersianFormatter.php`
-- `src/PluralRules.php`
-- `src/Translator.php`
-- `src/helpers.php`
+**فایل:** `src/I18nEngine.php`
+
+## وابستگی‌ها
+
+**موتورهای مورد‌نیاز:** `config`
 
 ## Service Providerها
 
 - `Tavaan\Engine\I18n\I18nServiceProvider`
 
-## وابستگی‌ها
+## سه درگاه ارتباط با سایر موتورها
 
-**موتورهای مورد‌نیاز:**
-
-- `config`
-
-## پیکربندی
-
-- فایل پیکربندی: `config/i18n.php`
-- کلید: `i18n`
+| درگاه | الگو | متدهای convenience |
+|---|---|---|
+| Container | pull-based DI | `make()`, `bound()` |
+| Events | pub/sub | `dispatch()`, `listen()` |
+| EngineBus | point-to-point RPC | `call()`, `offer()` |
 
 ## نصب
 
 ```bash
 git clone https://github.com/andrbi106/Tavaan-Engine-I18n.git
 ```
-
-این موتور بخشی از فریمورک تَوان است و معمولاً به‌صورت مستقیم نصب نمی‌شود،
-بلکه توسط [Tavaan-Core](https://github.com/andrbi106/Tavaan-Core) مدیریت می‌شود.
-
-## روابط با سایر مخازن
-
-| مخزن | نقش |
-|---|---|
-| **`andrbi106/Tavaan-Engine-I18n`** (این مخزن) | موتور I18n |
-| `andrbi106/Tavaan-Engine-Core` | ساختار پایه + درگاه ارتباط موتورها |
-| `andrbi106/Tavaan-Core` | اسکلت اپلیکیشن + همهٔ موتورها |
-| `Derogaramin/Tavaan-Framework` | فریمورک مادر (monorepo) |
 
 ## مجوز
 

@@ -15,7 +15,9 @@
   ],
   "requires": {
     "php": ">=8.2",
-    "engines": ["config"]
+    "engines": [
+      "config"
+    ]
   },
   "config": {
     "file": "config/i18n.php",
@@ -27,5 +29,6 @@
     "name": "Lang",
     "accessor": "translator"
   },
-  "docs": "docs/03-engines/i18n.md"
+  "docs": "docs/03-engines/i18n.md",
+  "class": "Tavaan\\Engine\\I18n\\I18nEngine"
 }
